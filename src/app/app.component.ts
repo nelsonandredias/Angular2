@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'complete-angular-guide';
+
+  username = '';
+
+  onReset(){
+    this.username = '';
+  }
+
 }
