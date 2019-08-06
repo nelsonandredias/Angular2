@@ -21,7 +21,10 @@ export class CockpitComponent implements OnInit {
   ngOnInit() {
   }
 
-  onAddServer() {
+  onAddServer(nameInput) {
+    //log the local reference of the html input element
+    console.log(nameInput.value);
+
     this.serverCreated.emit({
       serverName: this.newServerName,
       serverContent: this.newServerContent}
