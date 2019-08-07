@@ -23,6 +23,15 @@
               {{ evenNumber }}
             </li>
         </div>
+        <div *appUnless="onlyOdd">
+            <li
+              class="list-group-item"
+              *ngFor="let evenNumber of evenNumbers; let i = index"
+              [ngClass]="{odd: evenNumber % 2 !== 0}"
+              [ngStyle]="{backgroundColor: evenNumber % 2 !== 0 ? 'yellow' : 'transparent'}">
+              {{ evenNumber }}
+            </li>
+        </div>
       </ul>
       <p appBasicHighlight>Style with basic directive</p>
       <p appBetterHighlight [defaultColor]="'yellow'" [highlightColor]="'red'">Style with a better directive</p>
