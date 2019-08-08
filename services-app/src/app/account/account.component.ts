@@ -1,27 +1,26 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { AccountType } from '../shared/account.type';
-import { InformationType } from '../shared/information.type';
-import { LoggingService } from '../shared/logging.service';
 import { AccountsService } from '../shared/account.service';
+import { MethodLoggingService } from '../shared/method-logging.service';
 
 @Component({
   selector: 'app-account',
   templateUrl: './account.component.html',
   styleUrls: ['./account.component.css'],
-  providers: [LoggingService]
+  providers: [MethodLoggingService]
 })
 export class AccountComponent {
 
   @Input() account: AccountType;
   @Input() id: number;
 
-  constructor(private loggingService: LoggingService, private accountService: AccountsService) {
+  constructor(private methodLoggingService: MethodLoggingService, private accountService: AccountsService) {
   }
 
 
   onSetTo(status: string) {
     this.accountService.updateStatus({id: this.id, newStatus: status});
-    this.loggingService.logStatusChange(status);
+    this.methodLoggingService.logMethodCall();
   }
 
 }

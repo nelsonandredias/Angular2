@@ -1,21 +1,21 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { AccountType } from '../shared/account.type';
-import { LoggingService } from '../shared/logging.service';
 import { AccountsService } from '../shared/account.service';
+import { MethodLoggingService } from '../shared/method-logging.service';
 
 @Component({
   selector: 'app-new-account',
   templateUrl: './new-account.component.html',
   styleUrls: ['./new-account.component.css'],
-  providers: [LoggingService]
+  providers: [MethodLoggingService]
 })
 export class NewAccountComponent {
 
-  constructor(private loggingService: LoggingService, private accountService: AccountsService) { }
+  constructor(private methodLoggingService: MethodLoggingService, private accountService: AccountsService) { }
 
   onCreateAccount(accountName: string, accountStatus: string) {
     this.accountService.addAccount({name: accountName, status: accountStatus});
-    this.loggingService.logStatusChange(accountStatus);
+    this.methodLoggingService.logMethodCall();
   }
 
 }
