@@ -20,6 +20,7 @@ export class AccountComponent {
 
   onSetTo(status: string) {
     this.accountService.updateStatus({id: this.id, newStatus: status});
+    this.accountService.statusUpdated.emit(status);
     this.methodLoggingService.logMethodCall();
   }
 
