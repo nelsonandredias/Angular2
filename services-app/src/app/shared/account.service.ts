@@ -3,7 +3,7 @@ import { InformationType } from './information.type';
 import { LoggingService } from './logging.service';
 import { Injectable } from '@angular/core';
 
-//@Injectable is needed because we are injecting a service (LoggingService) into another service (AccountService)
+// @Injectable is needed because we are injecting a service (LoggingService) into another service (AccountService)
 @Injectable()
 export class AccountsService {
 

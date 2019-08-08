@@ -15,8 +15,6 @@ export class AccountComponent {
   @Input() account: AccountType;
   @Input() id: number;
 
-  @Output() statusChanged = new EventEmitter<InformationType>();
-
   constructor(private loggingService: LoggingService, private accountService: AccountsService) {
   }
 

@@ -16,18 +16,9 @@ export class AppComponent implements OnInit {
   constructor(private accountService: AccountsService) {
   }
 
-  //initialize array
+  // initialize array
   ngOnInit() {
     this.accounts = this.accountService.accounts;
-  }
-
-  onAccountAdded( newAccount: AccountType) {
-    this.accountService.addAccount(newAccount);
-  }
-
-
-  onStatusChanged( updateInfo: InformationType) {
-    this.accountService.updateStatus(updateInfo);
   }
 
 }

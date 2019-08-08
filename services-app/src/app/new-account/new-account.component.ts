@@ -11,9 +11,6 @@ import { AccountsService } from '../shared/account.service';
 })
 export class NewAccountComponent {
 
-  @Output() accountAdded = new EventEmitter<AccountType>();
-
-
   constructor(private loggingService: LoggingService, private accountService: AccountsService) { }
 
   onCreateAccount(accountName: string, accountStatus: string) {
