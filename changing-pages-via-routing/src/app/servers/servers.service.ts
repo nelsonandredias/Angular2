@@ -18,4 +18,24 @@ export class ServersService {
     return this.servers.slice();
   }
 
+  getServer(id: number) {
+    const server = this.servers.find(
+      (serverToSearch) => {
+        return serverToSearch.id === id;
+      }
+    );
+    return server;
+  }
+
+  updateServer(id: number, serverInfo: ServerModel) {
+    const server = this.getServer(id);
+
+    //if server exist, update
+    if (server) {
+      server.name = serverInfo.name;
+      server.status = serverInfo.status;
+    }
+
+  }
+
 }
