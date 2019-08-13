@@ -15,15 +15,18 @@ export class ServersService {
     ];
 
   getServers() {
-    return this.servers.slice();
+    return this.servers;
   }
 
   getServer(id: number) {
+    console.log('entered getServer: ' + id);
     const server = this.servers.find(
       (serverToSearch) => {
+        console.log(serverToSearch);
         return serverToSearch.id === id;
       }
     );
+    console.log('exit getServer: ' + JSON.stringify(server));
     return server;
   }
 
