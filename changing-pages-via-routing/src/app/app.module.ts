@@ -14,6 +14,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AppRoutingModule } from './app-routing.module';
 import { AuthService } from './auth.service';
 import { AuthGuardService } from './auth-guards.service';
+import { CanDeactivateGuard } from './servers/edit-server/can-deactivated-guard.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { AuthGuardService } from './auth-guards.service';
   ],
   providers: [
     AuthService,
-    AuthGuardService
+    AuthGuardService,
+    CanDeactivateGuard
   ],
   bootstrap: [AppComponent]
 })
