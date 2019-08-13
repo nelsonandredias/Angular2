@@ -12,7 +12,7 @@ export class UserComponent implements OnInit, OnDestroy {
 
   user: UserModel;
 
-  paramsObsSubscription: Subscription
+  paramsObsSubscription: Subscription;
 
   constructor(private route: ActivatedRoute) { }
 
