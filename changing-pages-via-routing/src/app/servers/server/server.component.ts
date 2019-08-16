@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ServerModel } from '../server.model';
 import { ServersService } from '../servers.service';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { ActivatedRoute, Params, Router, Data } from '@angular/router';
 
 @Component({
   selector: 'app-server',
@@ -16,7 +16,7 @@ export class ServerComponent implements OnInit {
   }
 
   ngOnInit() {
-    // use snapshot for the first initialization
+    /* // use snapshot for the first initialization
     const id = +this.route.snapshot.params['id'];
     this.server = this.serversService.getServer(id);
 
@@ -24,6 +24,12 @@ export class ServerComponent implements OnInit {
     this.route.params.subscribe(
       (params: Params) => {
         this.server = this.serversService.getServer(+params['id']);
+      }
+    ); */
+
+    this.route.data.subscribe(
+      (data: Data) => {
+        this.server = data['server'];
       }
     );
   }
