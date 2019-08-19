@@ -16,9 +16,14 @@ export class RecipesComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log("dfsf");
     this.recipeService.recipeSelected.subscribe(
       (recipe: Recipe) => {
-        this.selectedRecipe = recipe;
+        console.log(recipe);
+        setTimeout( () => {
+          this.selectedRecipe = recipe;
+        } , 10000);
+
       }
     );
   }
