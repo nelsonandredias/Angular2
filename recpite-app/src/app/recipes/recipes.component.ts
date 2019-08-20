@@ -10,22 +10,10 @@ import { RecipeService } from './recipe.service';
 })
 export class RecipesComponent implements OnInit {
 
-  selectedRecipe: Recipe;
-
-  constructor(private recipeService: RecipeService) {
+  constructor() {
   }
 
   ngOnInit() {
-    console.log("dfsf");
-    this.recipeService.recipeSelected.subscribe(
-      (recipe: Recipe) => {
-        console.log(recipe);
-        setTimeout( () => {
-          this.selectedRecipe = recipe;
-        } , 10000);
-
-      }
-    );
   }
 
 

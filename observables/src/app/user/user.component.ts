@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { UserService } from './user.service';
 
@@ -24,6 +24,7 @@ export class UserComponent implements OnInit {
 
   }
 
+  // add data to Subject
   onActivated() {
     this.userService.activatedEmitter.next(true);
   }

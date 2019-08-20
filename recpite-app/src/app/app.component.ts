@@ -7,11 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  loadedFeature = 'recipe';
-
-  /* change the component feature selected based on the header */
-  onNavigate(feature: string) {
-    this.loadedFeature = feature;
-  }
 
 }
