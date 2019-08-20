@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-company',
@@ -35,8 +36,15 @@ export class CompanyComponent implements OnInit, OnDestroy {
       }
     );
 
-    // subscribe to custom observable
-    this.firstOnSubscription = customIntervalObservable.subscribe(
+
+    // subscribe to custom observable that has an operator (pipe) to customize/transform data before observer subscription
+    this.firstOnSubscription = customIntervalObservable.pipe(
+        map(
+          (data: number) => {
+            return 'round: ' + (data + 1);
+          }
+        )
+      ).subscribe(
       data => {
         console.log(data);
       },
