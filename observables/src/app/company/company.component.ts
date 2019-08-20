@@ -20,6 +20,16 @@ export class CompanyComponent implements OnInit, OnDestroy {
         let count = 0;
         setInterval( () => {
           observer.next(count);
+
+          // observer completed -> stream is closed
+          if (count === 7) {
+            observer.complete();
+          }
+
+          // observer throw error
+          if ( count > 5) {
+            observer.error( new Error('Count is greater than 5!'));
+          }
           count++;
         } , 1000);
       }
@@ -29,6 +39,14 @@ export class CompanyComponent implements OnInit, OnDestroy {
     this.firstOnSubscription = customIntervalObservable.subscribe(
       data => {
         console.log(data);
+      },
+      error => { // observable is canceled due to error
+        console.log(error);
+        alert(error);
+      },
+      () => { // observable is completed
+        console.log('completed');
+        alert('completed!');
       }
     );
 
