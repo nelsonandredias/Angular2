@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <form (ngSubmit)="onSubmit()" #formRefElem="ngForm">
-      <div id="user-data" ngModel ngModelGroup="userData" #userDataRefElem="ngModelGroup">
+      <div id="user-data" ngModelGroup="userData" #userDataRefElem="ngModelGroup">
         <div class="form-group">
           <label for="user">Username</label>
           <input type="text" id="user" class="form-control" ngModel name="username" required>
