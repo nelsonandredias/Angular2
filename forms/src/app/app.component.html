@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <form>
+      <div id="user-data">
+        <div class="form-group">
+          <label for="user">Username</label>
+          <input type="text" id="user" class="form-control" ngModel name="username">
+        </div>
+        <button class="btn btn-default" type="button">Suggest an Username</button>
+        <div class="form-group">
+          <label for="mail">Mail</label>
+          <input type="email" id="mail" class="form-control" ngModel name="email">
+        </div>
+      </div>
+      <hr>
+      <div class="form-group">
+        <label for="secret">Secret Questions</label>
+        <select id="secret" class="form-control" ngModel name="secrt">
+          <option value="pet">Your first Pet??</option>
+          <option value="teacher">Your first Teacher??</option>
+        </select>
+      </div>
+      <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+  </div>
+</div>
