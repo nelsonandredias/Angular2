@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <form (ngSubmit)="onSubmit()" #formRefElem="ngForm">
-      <div id="user-data">
+      <div id="user-data" ngModel ngModelGroup="userData" #userDataRefElem="ngModelGroup">
         <div class="form-group">
           <label for="user">Username</label>
           <input type="text" id="user" class="form-control" ngModel name="username" required>
@@ -13,6 +13,7 @@
           <span class="help-block" *ngIf="!emailRefElem.valid && emailRefElem.touched">Please enter a valid email!</span>
         </div>
       </div>
+      <p *ngIf="!userDataRefElem.valid && userDataRefElem.touched">User Data is invalid!</p>
       <hr>
       <div class="form-group">
         <label for="secret">Secret Questions</label>
