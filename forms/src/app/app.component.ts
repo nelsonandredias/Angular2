@@ -8,6 +8,8 @@ import { NgForm } from '@angular/forms';
 })
 export class AppComponent {
 
+  defaultQuestion = 'pet';
+
   // access angular form
   @ViewChild('formRefElem', {static: false}) submmitedForm: NgForm;
 
