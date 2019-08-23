@@ -35,4 +35,15 @@
       <button class="btn btn-primary" type="submit" [disabled]="!formRefElem.valid">Submit</button>
     </form>
   </div>
+  <hr>
+  <div class="row" *ngIf="submitted" >
+    <div class="col-xs-12">
+      <h3>Your Data</h3>
+      <p>Username: </p> {{ this.userReview.username }}
+      <p>Mail: </p> {{ this.userReview.email }}
+      <p>Secret Question: </p> {{ this.userReview.secretQuestion }}
+      <p>Answer: </p> {{ this.userReview.answer }}
+      <p>Gender: </p> {{ this.userReview.gender }}
+    </div>
+  </div>
 </div>
