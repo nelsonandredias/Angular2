@@ -10,12 +10,19 @@ export class AppComponent {
 
   defaultQuestion = 'pet';
   answer = '';
+  genders = ['male', 'female'];
 
   // access angular form
   @ViewChild('formRefElem', {static: false}) submmitedForm: NgForm;
 
+  // update the username input with the default value
   suggestUserName() {
     const suggestUserName = 'Superuser';
+    this.submmitedForm.form.patchValue({
+      userData: {
+        username: suggestUserName
+      }
+    });
   }
 
 
