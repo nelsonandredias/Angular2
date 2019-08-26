@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-      <form #formRefElem="ngForm">
+      <form (ngSubmit)="onSubmit()" #formRefElem="ngForm">
         <div class="form-group">
           <label for="subs">Subscription</label>
           <select id="subs" name="subscrptn" [ngModel]="defaultSubscription" class="form-control">
@@ -21,8 +21,16 @@
           <input id="pass" type="password" id="pass" name="passwordField" ngModel class="form-control" required #passRefElem="ngModel">
           <span class="help-block" *ngIf="!passRefElem.valid && passRefElem.touched">The password should not be empty!!</span>
         </div>
+        <button class="btn btn-primary" type="submit" [disabled]="!formRefElem.valid">Submit</button>
       </form>
-      <button class="btn btn-primary" type="submit" [disabled]="!formRefElem.valid">Submit</button>
+    </div>
+  </div>
+  <hr>
+  <div class="row" *ngIf="submitted">
+    <div class="col-xs-12">
+        <h3>Submitted data</h3>
+        <p>Subscription: </p>
+        <p>Email: </p>
     </div>
   </div>
 </div>

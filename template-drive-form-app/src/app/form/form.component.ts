@@ -8,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
 export class FormComponent implements OnInit {
 
   defaultSubscription = 'advanced';
+  submitted = false;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onSubmit() {
+    console.log("submitted");
+    this.submitted = true;
   }
 
 }
