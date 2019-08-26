@@ -18,9 +18,9 @@ export class AppComponent implements OnInit {
     // create and initialize a reactive form
     this.signupForm = new FormGroup({
 
-      'username': new FormControl(null),
-      'email': new FormControl(null),
-      'gender': new FormControl('male')
+      'usernameReactive': new FormControl(null),
+      'emailReactive': new FormControl(null),
+      'genderReactive': new FormControl('male')
 
     });
   }
