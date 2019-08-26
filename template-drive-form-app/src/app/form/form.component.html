@@ -1,10 +1,10 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-      <form>
+      <form #formRefElem="ngForm">
         <div class="form-group">
           <label for="subs">Subscription</label>
-          <select id="subs" class="form-control">
+          <select id="subs" name="subscrptn" [ngModel]="defaultSubscription" class="form-control">
             <option value="basic">Basic</option>
             <option value="advanced">Advanced</option>
             <option value="professional">Pro</option>
@@ -13,16 +13,16 @@
         <hr>
         <div class="form-group">
           <label for="mail">Email</label>
-          <input type="email" id="mail" class="form-control" required email>
-          <span class="help-block">Please enter a valid email!!</span>
+          <input type="email" id="mail" name="emailField" ngModel class="form-control" required email #emailRefElem="ngModel">
+          <span class="help-block" *ngIf="!emailRefElem.valid && emailRefElem.touched">Please enter a valid email!!</span>
         </div>
         <div class="form-group">
           <label for="pass">Password</label>
-          <input id="pass" type="password" id="pass" class="form-control" required>
-          <span class="help-block">The password should not be empty!!</span>
+          <input id="pass" type="password" id="pass" name="passwordField" ngModel class="form-control" required #passRefElem="ngModel">
+          <span class="help-block" *ngIf="!passRefElem.valid && passRefElem.touched">The password should not be empty!!</span>
         </div>
       </form>
-      <button class="btn btn-primary" type="submit">Submit</button>
+      <button class="btn btn-primary" type="submit" [disabled]="!formRefElem.valid">Submit</button>
     </div>
   </div>
 </div>
