@@ -25,4 +25,11 @@ export class AppComponent implements OnInit {
     });
   }
 
+  onSubmit() {
+
+    // submit the form based on the reactive form
+    console.log(this.signupForm);
+
+  }
+
 }
