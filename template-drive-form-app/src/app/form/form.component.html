@@ -5,9 +5,7 @@
         <div class="form-group">
           <label for="subs">Subscription</label>
           <select id="subs" name="subscriptionField" [ngModel]="defaultSubscription" class="form-control">
-            <option value="basic">Basic</option>
-            <option value="advanced">Advanced</option>
-            <option value="professional">Pro</option>
+            <option *ngFor="let subscriptionElem of subscriptionValues" [value]="subscriptionElem">{{ subscriptionElem }}</option>
           </select>
         </div>
         <hr>

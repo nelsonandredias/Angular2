@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { UserFormModel } from '../models/userForm.model';
 import { NgForm } from '@angular/forms';
+import { FormService } from './form.service';
 
 @Component({
   selector: 'app-form',
@@ -9,7 +10,8 @@ import { NgForm } from '@angular/forms';
 })
 export class FormComponent implements OnInit {
 
-  defaultSubscription = 'advanced';
+  subscriptionValues: string[];
+  defaultSubscription = 'Advanced';
   submitted = false;
 
   submittedFormReview: UserFormModel = {
@@ -23,9 +25,11 @@ export class FormComponent implements OnInit {
   // access angular form
   @ViewChild('formRefElem', {static: false}) submittedForm: NgForm;
 
-  constructor() { }
+  constructor(private formService: FormService) {
+  }
 
   ngOnInit() {
+    this.subscriptionValues = this.formService.getAllSubscriptionsValues();
   }
 
   onSubmit() {
