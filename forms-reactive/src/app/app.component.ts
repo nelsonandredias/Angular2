@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -18,8 +18,8 @@ export class AppComponent implements OnInit {
     // create and initialize a reactive form
     this.signupForm = new FormGroup({
 
-      'usernameReactive': new FormControl(null),
-      'emailReactive': new FormControl(null),
+      'usernameReactive': new FormControl(null, Validators.required),
+      'emailReactive': new FormControl(null, [Validators.required, Validators.email]),
       'genderReactive': new FormControl('male')
 
     });
