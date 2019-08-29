@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -22,7 +23,7 @@ export class AppComponent implements OnInit {
     this.signupForm = new FormGroup({
 
       usernameReactive: new FormControl(null, [Validators.required, this.forbiddenNames.bind(this)]),
-      emailReactive: new FormControl(null, [Validators.required, Validators.email]),
+      emailReactive: new FormControl(null, [Validators.required, Validators.email], this.forbiddenEmails),
       contactData: new FormGroup({
         addressReactive: new FormControl(null, Validators.required),
         cityReactive: new FormControl(null, Validators.required)
@@ -46,7 +47,7 @@ export class AppComponent implements OnInit {
     console.log(this.signupForm);
   }
 
-  // create a custom name validator for the userNameReactive formControl
+  // create a synchronous custom name validator for the userNameReactive formControl
   forbiddenNames(control: FormControl): {[s: string]: boolean} {
 
     // verify typed name is forbidden (if exists in the the array of forbiddenUsernames)
@@ -55,6 +56,26 @@ export class AppComponent implements OnInit {
     }
     // otherwise, return null because it's valid
     return null;
+  }
+
+  // create an async validator
+  forbiddenEmails(control: FormControl): Promise<any> | Observable<any> {
+
+    const newPromise = new Promise<any>(
+      (resolve, reject) => {
+        setTimeout(() => {
+          // verify email is "test@test.com" ( it means, it is invalid)
+          if (control.value === 'test@test.com') {
+            resolve({'emailIsForbidden': true});
+          } else {
+            //otherwise, return null because it's valid
+            resolve(null);
+          }
+        }, 2000);
+      }
+    );
+
+    return newPromise;
   }
 
 }
