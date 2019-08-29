@@ -30,6 +30,16 @@
             <input type="radio" [value]="gender" formControlName="genderReactive"> {{ gender }} <!-- synchronize input with corresponding reactive form field created in typescript -->
           </label>
         </div>
+        <div formArrayName="hobbiesReactive">
+          <h4>Your hobbies</h4>
+          <button type="button" class="btn btn-default" (click)="onAddHobby()">Add Hobby</button>
+          <hr>
+          <div class="form-group" *ngFor="let hobbyControl of signupForm.get('hobbiesReactive').controls; let i = index">
+            <input type="text" class="form-control" [formControlName]="i">
+            <hr>
+          </div>
+        </div>
+        <hr>
         <button class="btn btn-primary" type="submit">Submit</button>
       </form>
     </div>
