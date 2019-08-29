@@ -43,6 +43,14 @@ export class AppComponent implements OnInit {
       (status) => {
         console.log(status);
     });
+
+    // update form with default values
+    this.signupForm.patchValue({
+      'usernameReactive': 'insert a name',
+      'contactData': {
+        'cityReactive': 'insert a city'
+      }
+    });
   }
 
   onAddHobby() {
