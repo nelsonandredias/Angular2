@@ -20,6 +20,10 @@ export class AppComponent implements OnInit {
 
       'usernameReactive': new FormControl(null, Validators.required),
       'emailReactive': new FormControl(null, [Validators.required, Validators.email]),
+      'contactData': new FormGroup({
+        'addressReactive': new FormControl(null, Validators.required),
+        'cityReactive': new FormControl(null, Validators.required)
+      }),
       'genderReactive': new FormControl('male')
 
     });
