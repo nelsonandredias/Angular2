@@ -30,7 +30,18 @@ export class AppComponent implements OnInit {
       }),
       genderReactive: new FormControl('male'),
       hobbiesReactive: new FormArray([])
+    });
 
+    // accessing reactive form values once it changes
+    this.signupForm.valueChanges.subscribe(
+      (value) => {
+        console.log(value);
+    });
+
+    // accessing reactive form status once it changes
+    this.signupForm.statusChanges.subscribe(
+      (status) => {
+        console.log(status);
     });
   }
 
