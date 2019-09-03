@@ -33,4 +33,14 @@ export class ShoppingListService {
 
   }
 
+  updateIngredient(index: number, newIngredient: Ingredient) {
+
+    // update the existing ingredient based on the index
+    this.ingredients[index] = newIngredient;
+
+    // emit the updated list of ingredients
+    this.ingredientsChanged.next(this.ingredients.slice());
+
+  }
+
 }
